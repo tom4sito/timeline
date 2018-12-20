@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>timeline 3</title>
+	<title>timeline 5</title>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
 	        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
 	        crossorigin="anonymous">
@@ -85,6 +85,7 @@
 		<div id="year-content" class="col-xs-6 col-sm-8 col-md-10 col-lg-10" >
 			<img class="yearimg" src="" width="260" heigth="404">
 		</div>
+		<button id="stopanimation">stop</button>
 
 	</div>
 
@@ -101,6 +102,9 @@
 	var browserData = browserType.split(" ");
 
 	var yearImgArray = ["img0.png", "img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.png", "img7.jpg"];
+
+	var lastScroll = 0;
+	var currentEvent = "";
 
 	if(browserData[0].toLowerCase() == "firefox" && (parseInt(browserData[1]) > 30))
 	{
@@ -198,6 +202,10 @@
 					yearTracker += 1;
 					var currElement = maincont.children[yearTracker];
 					currElement = currElement.children[0];
+
+					scrollTime = console.log(e.timeStamp);
+					lastScroll = scrollTime;
+
 					console.log("currElement: vvvvv")
 					console.log(currElement);
 					$(currElement).attr({"width":"100", "heigth":"100"});
@@ -208,15 +216,19 @@
 					$(lastYearClicked).attr({"width":"60", "heigth":"60"});
 					$(lastYearClicked).removeClass("hoverlock");
 
+					$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
+
+					console.log("event print: vvvvv");
+					console.log(e);
+					currentEvent = e;
+
+					console.log("event global var: vvvv");
+					console.log(currentEvent);
+
 					console.log("previousElement: vvvvv");
 					console.log(lastYearClicked);
 					lastYearClicked = currElement;
 
-					
-					// $(".yearimg").hide(function(){
-					// 	$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
-					// }).fadeIn();
-					$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
 					
 				}			
 			}
@@ -240,6 +252,8 @@
 					console.log("previousElement: vvvvv");
 					console.log(lastYearClicked);
 					lastYearClicked = currElement;
+
+
 
 					$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
 				}			
