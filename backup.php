@@ -11,31 +11,24 @@
 
 	<style type="text/css">
 		.current-year-container{
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			width: 40%;
-			padding-left: 40%;
 			margin-bottom: 10px;
 		}
 
-		.active-year {
-			padding-left: 1.5%;
+		.active-year{
+			padding-left: 1.1% !important;
 		}
 
 		.current-year{
 			padding-left: 2%;
 			cursor: pointer;
 			margin-bottom: 10px;
-			width: 360px;
 		}
 
 		.not-active{
-/*			padding-left: 2%;*/
 			opacity: 0.7;
 		}
 
-		.year-arrow {
+		.year-arrow{
 			margin-right: 10px;
 		}
 		.unactive-year-arrow{
@@ -44,7 +37,6 @@
 
 		.unactive-year-img{
 			height: 140px;
-			/*opacity: 0.6;*/
 		}
 
 
@@ -52,7 +44,6 @@
 		.active-year-img{
 			width:310px;
 			height: 180px;
-			/*padding-bottom: 10px;*/
 		}
 		.active-year-arrow{
 			height: 180px;
@@ -68,38 +59,81 @@
 			height: 120px;
 		}
 
-
 	}
 	</style>
 </head>
 <body>
 	<div class="row">
 		<div class="col-sm-12 col-md-12 col-lg-12" id="timeline-container">
-			<div class="current-year-container">
-				<div class="current-year not-active" tracker="0">
-					<img src="images/2002_arrow_b.png" class="year-arrow unactive-year-arrow">
-					<img src="images/2002_text.png" class="unactive-year-img">
-				</div>
-				<div class="current-year not-active" tracker="1">
-					<img src="images/2008_arrow_b.png" class="year-arrow unactive-year-arrow">
-					<img src="images/2001_text.png" height="228" class="unactive-year-img">
-				</div>
-				<div class="current-year not-active" tracker="2">
-					<img src="images/2010_arrow_b.png" class="year-arrow unactive-year-arrow">
-					<img src="images/2010_text.png" height="228" class="unactive-year-img">
-				</div>
-	<!-- 			<div class="current-year active-year" tracker="3">
-					<img src="images/2008_arrow_b.png" class="year-arrow active-year-arrow">
-					<img src="images/2001_text.png" height="228" class="active-year-img">
-				</div> -->
+			<div class="current-year not-active" tracker="0">
+				<img src="images/2002_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2002_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="1">
+				<img src="images/2008_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2008_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="2">
+				<img src="images/2010_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2010_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="3">
+				<img src="images/2011_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2011_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="4">
+				<img src="images/2013_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2013_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="5">
+				<img src="images/2014_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2014_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="6">
+				<img src="images/2015_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2015_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="7">
+				<img src="images/2017_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2017_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="8">
+				<img src="images/2017_2_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2017_2_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="9">
+				<img src="images/2018_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2018_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="10">
+				<img src="images/2018_2_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2018_2_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="11">
+				<img src="images/2018_3_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2018_3_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="12">
+				<img src="images/2018_4_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2018_4_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="13">
+				<img src="images/2019_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2019_text.png" height="228" class="unactive-year-img">
+			</div>
+			<div class="current-year not-active" tracker="14">
+				<img src="images/2020_arrow_b.png" class="year-arrow unactive-year-arrow">
+				<img src="images/2020_text.png" height="228" class="unactive-year-img">
 			</div>
 		</div>		
 	</div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
 </script>
+
 <script type="text/javascript">
-	var yearTracker = -1;
+	var numOfTimeLineEvents = 14; //every time an event is added to the timeline this var must be increased by one
+	var yearTracker = -1; //keeps track of the current year highlighted
 	var scrollDirection = 0;
 	var lastYearSelected = "";
 	var lastYearArrow = "";
@@ -107,21 +141,25 @@
 
 	var browserType = browserVersion();
 	var browserData = browserType.split(" ");
+	var isFireFox = false;
 
-	var yearImgArray = ["img0.png", "img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.png", "img7.jpg"];
+	var whichBrowserToScroll = ""; //stores the wheel event depending on the userbrowser
+	if(browserData[0].toLowerCase() == "firefox" && (parseInt(browserData[1]) > 30)){
+		whichBrowserToScroll = "DOMMouseScroll"; //wheel event compatible with FIREFOX
+		isFireFox = true;
+	}
+	else if(browserData[0] == "IE"){
+		whichBrowserToScroll = "mousewheel"; //wheel event compatible with INTERNET EXPLORER
+	}
+	else{
+		whichBrowserToScroll = "wheel"; ////wheel event compatible with all other browsers
+	}
 
 	var lastScroll = 0;
 	var currentEvent = "";
 
-	if(browserData[0].toLowerCase() == "firefox" && (parseInt(browserData[1]) > 30))
-	{
-		console.log("firefox: " + browserData[1]);
-		scrollFirefox();
-	}
-	else{
-		console.log("not firefox");
-		scrollTestImage();
-	}
+	// main scrolling function that rolls years up and down
+	scrollTest();
 
 	function browserVersion(){
 		var ua= navigator.userAgent, tem, 
@@ -139,73 +177,22 @@
 	    return M.join(' ');
 	}
 
-	function scrollFirefox(){
-		document.getElementById("maincont").addEventListener("DOMMouseScroll", function(e){
-			console.log(e.detail);
-			if(e.detail > scrollDirection){
-				if(yearTracker < 7){
-					yearTracker += 1;
-					var currElement = this.children[yearTracker];
-					$(currElement).css({"color":"red", "font-size": "60px"});
-					$(currElement).prev().css({"color":"black", "font-size": "30px"});
-				}			
-			}
-			else{
-				if(yearTracker > 0){
-					yearTracker -= 1;
-					var currElement = this.children[yearTracker];
-					$(currElement).css({"color":"red", "font-size": "60px"});
-					$(currElement).prev().css({"color":"black", "font-size": "30px"});
-					$(currElement).next().css({"color":"black", "font-size": "30px"});	
-				}			
-			}
-			console.log(yearTracker);
-		});
-	}
-
-	function scrollNotFirefox(){
-		document.getElementById("timelinecontainer").addEventListener("wheel", function(e){
-			var maincont = this.children[0];
-			var wheeldata = e.wheelDelta * -1;
-			if(wheeldata > scrollDirection){
-				if(yearTracker < 7){
-					yearTracker += 1;
-					var currElement = maincont.children[yearTracker];
-					$(currElement).addClass("year-head-active");
-					$(currElement).removeClass("generic");
-					lastYearClicked = currElement;
-					$(currElement).prev().removeClass("year-head-active");
-					// $(".yearimg").hide(function(){
-					// 	$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
-					// }).fadeIn();
-					$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
-					
-				}			
-			}
-			else{
-				if(yearTracker > 0){
-					yearTracker -= 1;
-					var currElement = maincont.children[yearTracker];
-					$(currElement).removeClass("generic");
-					$(currElement).addClass("year-head-active");
-					$(currElement).prev().removeClass("year-head-active");
-					$(currElement).next().removeClass("year-head-active");
-					lastYearClicked = currElement;
-					$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
-				}			
-			}
-			console.log(yearTracker);
-			event.preventDefault();
-		});
-	}
-
-	function scrollTestImage(){
-		document.getElementById("timeline-container").addEventListener("wheel", function(e){
+	function scrollTest(){
+		document.getElementById("timeline-container").addEventListener(whichBrowserToScroll, function(e){
 			var currentYearContainer = this.children;
-			var wheeldata = e.wheelDelta * -1;
+
+			var wheeldata = 0;
+			// sets wheel data depending on user browser
+			if(isFireFox){
+				wheeldata = e.detail;
+			}
+			else{
+				wheeldata = e.wheelDelta * -1;
+			}
+			
 			if(wheeldata > scrollDirection){
-				if(yearTracker < 2){
-					if(lastYearSelected && $(lastYearSelected).hasClass("active-year") && (yearTracker != 2)){
+				if(yearTracker < numOfTimeLineEvents){
+					if(lastYearSelected && $(lastYearSelected).hasClass("active-year") && (yearTracker != numOfTimeLineEvents)){
 						$(lastYearSelected).removeClass("active-year").addClass("not-active");
 						$(lastYearSelected).removeClass("hover-lock");
 						$(lastYearArrow).removeClass("active-year-arrow").addClass("unactive-year-arrow");
@@ -216,6 +203,9 @@
 					var currentYear = currentYearContainer[yearTracker];
 					var currentYearArrow = currentYear.children[0];
 					var currentYearImg = currentYear.children[1];
+
+					console.log($('html,body').animate({scrollTop: $(currentYear).offset().top - 200}, 100));
+
 
 					$(currentYear).removeClass("not-active").addClass("active-year");
 					$(currentYear).addClass("hover-lock");
@@ -231,7 +221,6 @@
 					lastYearSelected = currentYear;
 					lastYearArrow = currentYearArrow;
 					lastYearImg = currentYearImg;
-					console.log(yearTracker);
 				}			
 			}
 			else{
@@ -247,6 +236,8 @@
 					var currentYearArrow = currentYear.children[0];
 					var currentYearImg = currentYear.children[1];
 
+					$('html,body').animate({scrollTop: $(currentYear).offset().top - 200}, 100);
+
 					$(currentYear).removeClass("not-active").addClass("active-year");
 					$(currentYear).addClass("hover-lock");
 
@@ -263,7 +254,6 @@
 					lastYearImg = currentYearImg;
 				}			
 			}
-			// console.log(yearTracker);
 			event.preventDefault();
 		});
 	}
@@ -293,6 +283,8 @@
 		var currentYearArrow = currentYear.children()[0];
 		var currentYearImg = currentYear.children()[1];
 
+		$('html,body').animate({scrollTop: $(currentYear).offset().top - 200}, 100);
+
 		$(this).removeClass("not-active").addClass("active-year");
 		$(this).addClass("hover-lock");
 
@@ -303,9 +295,11 @@
 		if($(currentYearImg).hasClass("unactive-year-img")){
 			$(currentYearImg).removeClass("unactive-year-img").addClass("active-year-img");
 		}
+
 		lastYearSelected = currentYear;
 		lastYearArrow = currentYearArrow;
 		lastYearImg = currentYearImg;
+		yearTracker = parseInt(currentYear.attr("tracker"));
 	});
 
 </script>

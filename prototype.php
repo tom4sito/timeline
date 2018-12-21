@@ -11,15 +11,10 @@
 
 	<style type="text/css">
 		.current-year-container{
-			/*display: block;*/
-/*			margin-left: auto;
-			margin-right: auto;
-			width: 40%;*/
-			/*padding-left: 40%;*/
 			margin-bottom: 10px;
 		}
 
-		.active-year {
+		.active-year{
 			padding-left: 1.1% !important;
 		}
 
@@ -30,11 +25,10 @@
 		}
 
 		.not-active{
-/*			padding-left: 2%;*/
 			opacity: 0.7;
 		}
 
-		.year-arrow {
+		.year-arrow{
 			margin-right: 10px;
 		}
 		.unactive-year-arrow{
@@ -43,7 +37,6 @@
 
 		.unactive-year-img{
 			height: 140px;
-			/*opacity: 0.6;*/
 		}
 
 
@@ -51,7 +44,6 @@
 		.active-year-img{
 			width:310px;
 			height: 180px;
-			/*padding-bottom: 10px;*/
 		}
 		.active-year-arrow{
 			height: 180px;
@@ -141,6 +133,7 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
 </script>
+
 <script type="text/javascript">
 	var yearTracker = -1;
 	var scrollDirection = 0;
@@ -151,19 +144,17 @@
 	var browserType = browserVersion();
 	var browserData = browserType.split(" ");
 
-	var yearImgArray = ["img0.png", "img1.png", "img2.png", "img3.png", "img4.jpg", "img5.jpg", "img6.png", "img7.jpg"];
-
 	var lastScroll = 0;
 	var currentEvent = "";
 
 	if(browserData[0].toLowerCase() == "firefox" && (parseInt(browserData[1]) > 30))
 	{
-		console.log("firefox: " + browserData[1]);
+		// executes scrollling effect on Firefox browsers
 		scrollFirefox();
 	}
 	else{
-		console.log("not firefox");
-		scrollTestImage();
+		// executes scrolling effect on all browsers other than Firefox
+		scrollNotFirefox();
 	}
 
 	function browserVersion(){
@@ -183,70 +174,9 @@
 	}
 
 	function scrollFirefox(){
-		document.getElementById("maincont").addEventListener("DOMMouseScroll", function(e){
-			console.log(e.detail);
-			if(e.detail > scrollDirection){
-				if(yearTracker < 7){
-					yearTracker += 1;
-					var currElement = this.children[yearTracker];
-					$(currElement).css({"color":"red", "font-size": "60px"});
-					$(currElement).prev().css({"color":"black", "font-size": "30px"});
-				}			
-			}
-			else{
-				if(yearTracker > 0){
-					yearTracker -= 1;
-					var currElement = this.children[yearTracker];
-					$(currElement).css({"color":"red", "font-size": "60px"});
-					$(currElement).prev().css({"color":"black", "font-size": "30px"});
-					$(currElement).next().css({"color":"black", "font-size": "30px"});	
-				}			
-			}
-			console.log(yearTracker);
-		});
-	}
-
-	function scrollNotFirefox(){
-		document.getElementById("timelinecontainer").addEventListener("wheel", function(e){
-			var maincont = this.children[0];
-			var wheeldata = e.wheelDelta * -1;
-			if(wheeldata > scrollDirection){
-				if(yearTracker < 7){
-					yearTracker += 1;
-					var currElement = maincont.children[yearTracker];
-					$(currElement).addClass("year-head-active");
-					$(currElement).removeClass("generic");
-					lastYearClicked = currElement;
-					$(currElement).prev().removeClass("year-head-active");
-					// $(".yearimg").hide(function(){
-					// 	$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
-					// }).fadeIn();
-					$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
-					
-				}			
-			}
-			else{
-				if(yearTracker > 0){
-					yearTracker -= 1;
-					var currElement = maincont.children[yearTracker];
-					$(currElement).removeClass("generic");
-					$(currElement).addClass("year-head-active");
-					$(currElement).prev().removeClass("year-head-active");
-					$(currElement).next().removeClass("year-head-active");
-					lastYearClicked = currElement;
-					$(".yearimg").attr("src", "images/" + yearImgArray[yearTracker]);
-				}			
-			}
-			console.log(yearTracker);
-			event.preventDefault();
-		});
-	}
-
-	function scrollTestImage(){
-		document.getElementById("timeline-container").addEventListener("wheel", function(e){
+		document.getElementById("timeline-container").addEventListener("DOMMouseScroll", function(e){
 			var currentYearContainer = this.children;
-			var wheeldata = e.wheelDelta * -1;
-			if(wheeldata > scrollDirection){
+			if(e.detail > scrollDirection){
 				if(yearTracker < 14){
 					if(lastYearSelected && $(lastYearSelected).hasClass("active-year") && (yearTracker != 14)){
 						$(lastYearSelected).removeClass("active-year").addClass("not-active");
@@ -260,9 +190,7 @@
 					var currentYearArrow = currentYear.children[0];
 					var currentYearImg = currentYear.children[1];
 
-					console.log($('html,body').animate({scrollTop: $(currentYear).offset().top - 200}, 100));
-
-					// console.log($(currentYear).offset().top);
+					$('html,body').animate({scrollTop: $(currentYear).offset().top - 200}, 100);
 
 					$(currentYear).removeClass("not-active").addClass("active-year");
 					$(currentYear).addClass("hover-lock");
@@ -278,7 +206,6 @@
 					lastYearSelected = currentYear;
 					lastYearArrow = currentYearArrow;
 					lastYearImg = currentYearImg;
-					console.log(yearTracker);
 				}			
 			}
 			else{
@@ -312,7 +239,77 @@
 					lastYearImg = currentYearImg;
 				}			
 			}
-			// console.log(yearTracker);
+		});
+	}
+
+	function scrollNotFirefox(){
+		document.getElementById("timeline-container").addEventListener("wheel", function(e){
+			var currentYearContainer = this.children;
+			var wheeldata = e.wheelDelta * -1;
+			if(wheeldata > scrollDirection){
+				if(yearTracker < 14){
+					if(lastYearSelected && $(lastYearSelected).hasClass("active-year") && (yearTracker != 14)){
+						$(lastYearSelected).removeClass("active-year").addClass("not-active");
+						$(lastYearSelected).removeClass("hover-lock");
+						$(lastYearArrow).removeClass("active-year-arrow").addClass("unactive-year-arrow");
+						$(lastYearImg).removeClass("active-year-img").addClass("unactive-year-img");
+					}
+
+					yearTracker += 1;
+					var currentYear = currentYearContainer[yearTracker];
+					var currentYearArrow = currentYear.children[0];
+					var currentYearImg = currentYear.children[1];
+
+					console.log($('html,body').animate({scrollTop: $(currentYear).offset().top - 200}, 100));
+
+
+					$(currentYear).removeClass("not-active").addClass("active-year");
+					$(currentYear).addClass("hover-lock");
+
+					if($(currentYearArrow).hasClass("unactive-year-arrow")){
+						$(currentYearArrow).removeClass("unactive-year-arrow").addClass("active-year-arrow");
+					}
+
+					if($(currentYearImg).hasClass("unactive-year-img")){
+						$(currentYearImg).removeClass("unactive-year-img").addClass("active-year-img");
+					}
+
+					lastYearSelected = currentYear;
+					lastYearArrow = currentYearArrow;
+					lastYearImg = currentYearImg;
+				}			
+			}
+			else{
+				if(yearTracker > 0){
+					if(lastYearSelected && $(lastYearSelected).hasClass("active-year")){
+						$(lastYearSelected).removeClass("active-year").addClass("not-active");
+						$(lastYearSelected).removeClass("hover-lock");
+						$(lastYearArrow).removeClass("active-year-arrow").addClass("unactive-year-arrow");
+						$(lastYearImg).removeClass("active-year-img").addClass("unactive-year-img");
+					}
+					yearTracker -= 1;
+					var currentYear = currentYearContainer[yearTracker];
+					var currentYearArrow = currentYear.children[0];
+					var currentYearImg = currentYear.children[1];
+
+					$('html,body').animate({scrollTop: $(currentYear).offset().top - 200}, 100);
+
+					$(currentYear).removeClass("not-active").addClass("active-year");
+					$(currentYear).addClass("hover-lock");
+
+					if($(currentYearArrow).hasClass("unactive-year-arrow")){
+						$(currentYearArrow).removeClass("unactive-year-arrow").addClass("active-year-arrow");
+					}
+
+					if($(currentYearImg).hasClass("unactive-year-img")){
+						$(currentYearImg).removeClass("unactive-year-img").addClass("active-year-img");
+					}
+
+					lastYearSelected = currentYear;
+					lastYearArrow = currentYearArrow;
+					lastYearImg = currentYearImg;
+				}			
+			}
 			event.preventDefault();
 		});
 	}
@@ -354,14 +351,11 @@
 		if($(currentYearImg).hasClass("unactive-year-img")){
 			$(currentYearImg).removeClass("unactive-year-img").addClass("active-year-img");
 		}
+
 		lastYearSelected = currentYear;
 		lastYearArrow = currentYearArrow;
 		lastYearImg = currentYearImg;
 		yearTracker = parseInt(currentYear.attr("tracker"));
-	});
-
-	$("#scrollTracker").on("click", function(){
-		console.log("scroll top: " + $(this).scrollTop());
 	});
 
 </script>
